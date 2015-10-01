@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Upcoming games</string>
+    <string name="snackbar_action_try_again">Try again</string>
+    <array name="platforms">
+        <item name = "pc">PC</item>
+        <item name = "ps">PS4</item>
+        <item name = "xbox_one">Xbox One</item>
+    </array>
+</resources>
