@@ -4,6 +4,7 @@ import com.antocistudios.business.controller.IEntityCacheController;
 import com.antocistudios.business.entity.VideoGame;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public class MockEntityCacheControllerImpl implements IEntityCacheController {
 
 
     @Override
-    public void store(List<VideoGame> itemList) {
+    public void store(int platform, List<VideoGame> itemList) {
 
     }
 
@@ -29,13 +30,19 @@ public class MockEntityCacheControllerImpl implements IEntityCacheController {
     }
 
     @Override
-    public List<VideoGame> getCachedList() {
-        if (mReturnValues){
-            List<VideoGame> movies = new ArrayList();
-            VideoGame videoGame = new VideoGame(-1,"Test movie","Test URL");
-            movies.add(videoGame);
-            return movies;
-        }
-        return null;
+    public List<VideoGame> getCachedList(int platform) {
+        List<VideoGame> movies = new ArrayList<>();
+
+        VideoGame videoGame = new VideoGame();
+        videoGame.setShortDescription("Test short description");
+        videoGame.setPlatform(platform);
+        videoGame.setTitle("Test title");
+        videoGame.setReleaseDate(new Date());
+        videoGame.setDescription("Test description");
+        videoGame.setPosterURL("https://google.com");
+
+        movies.add(videoGame);
+
+        return movies;
     }
 }
